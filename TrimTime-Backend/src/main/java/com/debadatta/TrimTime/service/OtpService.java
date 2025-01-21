@@ -20,14 +20,11 @@ public class OtpService {
     private static final long OTP_EXPIRATION_TIME_MS = 5 * 60 * 1000; // 5 minutes
 
     private final AmazonSNS snsClient;
+    private final String senderId;
 
-    @Value("${aws.sns.senderId}")
-    private String senderId;
-
-    @Value("${aws.sns.Region}")
-    private String awsRegion;
-
-    public OtpService() {
+    public OtpService(@Value("${aws.sns.Region}") String awsRegion,
+            @Value("${aws.sns.senderId}") String senderId) {
+        this.senderId = senderId;
         this.snsClient = AmazonSNSClientBuilder.standard()
                 .withRegion(awsRegion)
                 .build();

@@ -17,19 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.debadatta.TrimTime.dto.BarberRegistrationRequest;
-import com.debadatta.TrimTime.dto.CustomerRegistrationRequest;
 import com.debadatta.TrimTime.model.Appointments;
 import com.debadatta.TrimTime.model.Barbers;
-import com.debadatta.TrimTime.model.Customers;
 import com.debadatta.TrimTime.model.Reviews;
 import com.debadatta.TrimTime.service.AppointmentsService;
 import com.debadatta.TrimTime.service.BarbersService;
 import com.debadatta.TrimTime.service.ReviewsService;
 
-import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/Barber")
@@ -65,7 +60,6 @@ public class BarbersController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
     }
-
 
     // updateProfile
     @PutMapping("/dashboard/{barber_id}")

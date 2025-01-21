@@ -1,19 +1,11 @@
 package com.debadatta.TrimTime.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
-
-import com.debadatta.TrimTime.dto.User;
-import com.debadatta.TrimTime.model.Customers;
-import com.debadatta.TrimTime.repo.CustomersRepo;
 
 @Service
 public class AuthenticationService {
 
     private final CognitoService cognitoService;
-    @Autowired
-    private CustomersRepo customersRepo;
     private final OtpService otpService;
 
     public AuthenticationService(CognitoService cognitoService, OtpService otpService) {
@@ -36,5 +28,4 @@ public class AuthenticationService {
     public String refreshAccessToken(String refreshToken) {
         return cognitoService.refreshToken(refreshToken);
     }
-
 }

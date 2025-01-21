@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +20,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.debadatta.TrimTime.dto.User;
 import com.debadatta.TrimTime.dto.UserRegistrationRequest;
-import com.debadatta.TrimTime.model.Customers;
 import com.debadatta.TrimTime.service.AuthenticationService;
 import com.debadatta.TrimTime.service.UserService;
 
@@ -46,8 +44,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public void login(
-            @RequestParam String mobileNumber, 
-            @RequestParam(required = false) String otp, 
+            @RequestParam String mobileNumber,
+            @RequestParam(required = false) String otp,
             HttpServletResponse response) throws IOException {
         if (otp == null || otp.isEmpty()) {
             authenticationService.generateOtp(mobileNumber);

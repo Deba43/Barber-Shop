@@ -37,8 +37,6 @@ public class SecurityConfig {
   @Value("${spring.security.oauth2.resourceserver.jwt.jwk-set-uri}")
   private URL jwkSetUri;
 
-  @Value("${sample.jwe-key-value}")
-  private RSAPrivateKey key;
 
   @Value("${aws.cognito.logoutUrl}")
   private String logoutUrl;

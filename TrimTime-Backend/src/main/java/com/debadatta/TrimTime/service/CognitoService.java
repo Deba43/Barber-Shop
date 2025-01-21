@@ -33,9 +33,6 @@ public class CognitoService {
     @Autowired
     private AWSCognitoIdentityProvider cognitoIdentityProvider;
 
-    @Autowired
-    private UserRepo userRepo;
-
     public CognitoService(AWSCognitoIdentityProvider cognitoIdentityProvider) {
         this.cognitoIdentityProvider = cognitoIdentityProvider;
     }

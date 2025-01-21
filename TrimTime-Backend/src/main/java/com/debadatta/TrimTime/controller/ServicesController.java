@@ -16,12 +16,11 @@ public class ServicesController {
     @Autowired
     private ServicesService servicesService;
 
-    //hairCut
-    //hairColoring
-    //beardStyling
-    //homeServices
-    //massage
-    //kidsHairCut
-    
-    
+    // hairCut
+    // hairColoring
+    // beardStyling
+    // homeServices
+    // massage
+    // kidsHairCut
+
 }

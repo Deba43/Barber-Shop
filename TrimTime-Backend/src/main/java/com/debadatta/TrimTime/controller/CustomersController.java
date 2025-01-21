@@ -25,9 +25,6 @@ import com.debadatta.TrimTime.service.AppointmentsService;
 
 import com.debadatta.TrimTime.service.CustomersService;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/Customer")

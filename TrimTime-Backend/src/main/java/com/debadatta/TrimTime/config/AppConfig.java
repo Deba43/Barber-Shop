@@ -40,9 +40,6 @@ public class AppConfig {
         @Value("${aws.secretkey}")
         private String SecretKey;
 
-        @Value("${aws.dynamodb.sessionkey}")
-        private String dynamodbSessionKey;
-
         @Value("${cognito.clientId}")
         private String clientId;
 
@@ -62,14 +59,17 @@ public class AppConfig {
 
         private AmazonDynamoDB buildAmazonDynamoDB() {
                 AmazonDynamoDBClientBuilder builder = AmazonDynamoDBClientBuilder.standard()
-                                .withRegion(awsRegion)
                                 .withCredentials(
                                                 new AWSStaticCredentialsProvider(
                                                                 new BasicAWSCredentials(AccessKey, SecretKey)));
 
                 if (dynamodbEndPoint != null && !dynamodbEndPoint.isEmpty()) {
+
                         builder.withEndpointConfiguration(
                                         new AwsClientBuilder.EndpointConfiguration(dynamodbEndPoint, awsRegion));
+                } else {
+
+                        builder.withRegion(awsRegion);
                 }
 
                 return builder.build();
