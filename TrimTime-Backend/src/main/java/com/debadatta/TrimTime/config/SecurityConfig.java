@@ -72,7 +72,7 @@ public class SecurityConfig {
             .logoutUrl("/logout") // Define the logout endpoint
             .logoutSuccessHandler(new CustomLogoutHandler(
                 environment.getProperty("aws.cognito.logoutUrl"),
-                environment.getProperty("aws.cognito.logout.success.logout_url"),
+                environment.getProperty("aws.cognito.logout.success.redirectUrl"),
                 environment.getProperty("aws.cognito.clientId"))) // Use custom logout handler
             .invalidateHttpSession(true) // Invalidate session
             .deleteCookies("JSESSIONID")) // Optionally delete cookies
@@ -105,7 +105,7 @@ public class SecurityConfig {
   @Bean
   public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration configuration = new CorsConfiguration();
-    configuration.setAllowedOrigins(List.of("http://localhost:5678")); // Replace with actual allowed origins
+    configuration.setAllowedOrigins(List.of("http://localhost:5173")); // Replace with actual allowed origins
     configuration.setAllowedMethods(List.of("GET", "POST", "PUT")); // Allowed HTTP methods
     configuration.setAllowedHeaders(List.of("Authorization", "Content-Type")); // Allowed headers
     configuration.setAllowCredentials(true); // Allow credentials (cookies)

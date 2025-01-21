@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TrimTimeApplication<TrimTime>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.debadatta.TrimTime.TrimTimeApplication",
+            "projectName": "TrimTime",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
